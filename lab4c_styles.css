@@ -1,0 +1,33 @@
+* {
+    border: 1px solid black;
+}
+
+form.studentRegister {
+    display: block;
+    margin: 10px auto;
+    width: 500px;
+}
+
+form.studentRegister div{
+    display: block;
+    width: 250px;
+    margin: 10px auto;
+}
+
+form.studentRegister label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+form.studentRegister input, select{
+    display: block;
+    width: 250px;
+    box-sizing: border-box;
+}
+
+form.studentRegister button{
+    display: block;
+    
+
+    margin: 10px auto;
+}
