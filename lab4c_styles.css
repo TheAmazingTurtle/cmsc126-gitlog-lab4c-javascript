@@ -165,3 +165,10 @@ form input[type="submit"]:hover {
 #showDate:hover {
     background-color: #e64a19;
 }
+
+/* Removing arrrows/spinners by w3School */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

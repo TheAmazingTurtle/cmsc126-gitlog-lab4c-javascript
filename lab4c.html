@@ -2,18 +2,19 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="Lab4PracticeCSS.css">
-    <script src="Lab4PracticeJs.js" defer></script>
+    <link rel="stylesheet" href="lab4c_styles.css">
 </head>
     <button type="button" id="showDate" onclick="show_Date()">Show Date</button>
 
+<body>
+    <!--Limit the use of form fields -->
     <form id="registerStudent">
         
         <div class="student_Info">
             <label id="identifierlangs">Student Application Form</label>
-            <input type="text" placeholder="Full Name" id="name" name="name">
-            <input type="number" placeholder="Age" id="age" name="age">
-            <input type="email" placeholder="Email Address" id="emailaddress" name="email"><br>
+            <input name="name" type="text" placeholder="Full Name" id="name" name="name">
+            <input name="age" type="number" placeholder="Age" id="age" name="age">
+            <input name="email" type="email" placeholder="Email Address" id="emailaddress" name="email"><br>
             <label>Select Program</label>
             <select type="program" id="program" name="program">
                 <option value="BA Food Appreciation">BA Food Appreciation</option>
@@ -31,11 +32,13 @@
 
         <div class="others">
             <label>SEARCH STUDENT BY ID</label><br>
-            <input type="number" placeholder="eg. 2023xxxxxx"><br>
+            <input name="Student Number" type="number" placeholder="eg. 2023xxxxxx"><br>
 
             <button type="submit" id="showList" onclick="show_ListStudent()">SHOW STUDENT LIST</label>
         </div>
 
     </form>
+    <script src="lab4c_scripts.js" defer></script>
+</body>
 
 </html>
