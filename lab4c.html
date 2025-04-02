@@ -1,52 +1,41 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <link rel="stylesheet" href="lab4c_styles.css">
-    </head>
-    <body>
-        <button onclick="time_now()">Show Current Date</button>
+<head>
+    <link rel="stylesheet" href="Lab4PracticeCSS.css">
+    <script src="Lab4PracticeJs.js" defer></script>
+</head>
+    <button type="button" id="showDate" onclick="show_Date()">Show Date</button>
 
-        <p id="currentDate"></p>
-        <p id="currentTime"></p>
-
-        <form class="studentRegister">
-            <div id="studentIdInput">
-                <label for="studentNumber">Student Number:</label>
-                <input type="number" id="studentNumber" name="studentNumber" required placeholder="Enter your student number">
-            </div>
-    
-            <div id="studentNameInput">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required placeholder="Enter Your Name">
-            </div>
-            
-            <div id="studentAgeInput">
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required placeholder="Enter Your Age">    
-            </div>
-            
-            <div id="studentEmailInput">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your email">
-            </div>
+    <form id="registerStudent">
         
-            <div id="studentCourseInput">
-                <label for="course">Course:</label>
-                <select id="course" name="course">
-                    <option value="BA Food Appreciation">BA Food Appreciation</option>
-                    <option value="BA Applied Poetry of the Future">BA Applied Poetry of the Future</option>
-                    <option value="BS Computer Repair Shop">BS Computer Repair Shop</option>
-                    <option value="BS Video Gaming">BS Video Gaming</option>
-                    <option value="BS Installing and Downloading">BS Installing and Downloading</option>
-                </select>
-            </div>
+        <div class="student_Info">
+            <label id="identifierlangs">Student Application Form</label>
+            <input type="text" placeholder="Full Name" id="name" name="name">
+            <input type="number" placeholder="Age" id="age" name="age">
+            <input type="email" placeholder="Email Address" id="emailaddress" name="email"><br>
+            <label>Select Program</label>
+            <select type="program" id="program" name="program">
+                <option value="BA Food Appreciation">BA Food Appreciation</option>
+                <option value="BA Applied Poetry of the Future">BA Applied Poetry of the Future</option>
+                <option value="BS Computer Repair Shop">BS Computer Repair Shop</option>
+                <option value="BS Video Gaming">BS Video Gaming</option>
+                <option value="BS Installing and Downloading">BS Installing and Downloading</option>
+            </select><br>
 
-            <button type="submit">Submit</button>
-            
-        </form>
+            <input type="submit" id="submit" onclick="add_Student()"><br>
 
-        <ul id="studentList"></ul>
+        </div>
+        
 
-        <script src="lab4c_scripts.js"></script>
-    </body>
-</html> 
+
+        <div class="others">
+            <label>SEARCH STUDENT BY ID</label><br>
+            <input type="number" placeholder="eg. 2023xxxxxx"><br>
+
+            <button type="submit" id="showList" onclick="show_ListStudent()">SHOW STUDENT LIST</label>
+        </div>
+
+    </form>
+
+</html>
