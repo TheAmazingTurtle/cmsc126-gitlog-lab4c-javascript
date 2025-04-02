@@ -17,17 +17,17 @@
     
             <div id="studentNameInput">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                <input type="text" id="name" name="name" required placeholder="Enter Your Name">
             </div>
             
             <div id="studentAgeInput">
                 <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required placeholder="Enter your age" min="0" step="1">    
+                <input type="number" id="age" name="age" required placeholder="Enter Your Age">    
             </div>
             
             <div id="studentEmailInput">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required pattern="^[a-zA-Z0-9._%+-]+@up\.edu\.ph$" title="Email must end with @up.edu.ph" placeholder="Enter your email">
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
             </div>
         
             <div id="studentCourseInput">
@@ -41,9 +41,11 @@
                 </select>
             </div>
 
-            <button>Submit</button>
+            <button type="submit">Submit</button>
             
         </form>
+
+        <ul id="studentList"></ul>
 
         <script src="lab4c_scripts.js"></script>
     </body>
