@@ -105,3 +105,29 @@ function add_student(event) {
 
     document.getElementById("submissionStatus").innerText = `Student ${newStudentName} added successfully with ID ${newStudentNumber}`;
 }
+
+function display_list(){
+    currentRow = document.getElementById("studentTable").innerText = ""
+    currentRow = document.getElementById("studentTable").insertRow()
+
+    currentRow.insertCell().innerText = "Student Number"
+    currentRow.insertCell().innerText = "Name"
+    currentRow.insertCell().innerText = "Age"
+    currentRow.insertCell().innerText = "Email Address"
+    currentRow.insertCell().innerText = "Course"
+
+    studentDir.forEach(displayStudent)
+}
+
+
+function displayStudent(student){
+    currentRow = document.getElementById("studentTable").insertRow()
+
+    currentRow.insertCell().innerText = student.studentNumber
+    currentRow.insertCell().innerText = student.name
+    currentRow.insertCell().innerText = student.age
+    currentRow.insertCell().innerText = student.email
+    currentRow.insertCell().innerText = student.course
+}
+
+document.getElementById("studentDisplay").onclick =display_list

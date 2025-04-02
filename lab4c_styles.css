@@ -172,3 +172,15 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+/*Adding style to table that displays all students*/
+#studentTable {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black; 
+    padding: 10px;
+    text-align: center;       
+}
