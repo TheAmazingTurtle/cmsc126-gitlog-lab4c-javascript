@@ -72,6 +72,7 @@ function validateStudent(name, age, email) {
 
 document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".studentRegister").addEventListener("submit", add_student);
+    document.querySelector(".studentSearch").addEventListener("submit", find_student);
 });
 
 function add_student(event) {
@@ -106,28 +107,79 @@ function add_student(event) {
     document.getElementById("submissionStatus").innerText = `Student ${newStudentName} added successfully with ID ${newStudentNumber}`;
 }
 
+function find_student(event){
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const targetNumber = parseInt(formData.get("searchInput"));
+
+    let displayStatus = document.getElementById("searchStatus");
+    let displayTable = document.getElementById("studentSearchTable");
+
+    displayStatus.innerHTML = "";
+    displayTable.innerHTML = "";
+
+
+    if (targetNumber < minStudentNum || targetNumber > maxStudentNum){
+        displayStatus.innerHTML = "Error: Invalid Student Number";
+        return;
+    }
+
+    for (let i = 0; i < studentDir.length; i++){
+        if (studentDir[i].studentNumber == targetNumber){
+            insertStudentDetails(displayTable, studentDir[i]);
+            return
+        }
+    }
+
+    displayStatus.innerHTML = "Error: Invalid Student Number";
+}
+
+function insertStudentDetails(displayTable, student){
+    studentNumberRow = displayTable.insertRow();
+    setSearchTableRow(studentNumberRow, "Student Number", student.studentNumber)
+
+    nameRow = displayTable.insertRow();
+    setSearchTableRow(nameRow, "Name", student.name)
+
+    ageRow = displayTable.insertRow();
+    setSearchTableRow(ageRow, "Age", student.age)
+
+    emailRow = displayTable.insertRow();
+    setSearchTableRow(emailRow, "Email", student.email)
+
+    courseRow = displayTable.insertRow();
+    setSearchTableRow(courseRow, "Course", student.course)
+}
+
+function setSearchTableRow(row, header, data){
+    row.insertCell().outerHTML = `<th>${header}</th>`;
+    row.insertCell().outerHTML = `<td>${data}</td>`;
+}
+
 function display_list(){
-    currentRow = document.getElementById("studentTable").innerText = ""
-    currentRow = document.getElementById("studentTable").insertRow()
+    let displayTable = document.getElementById("studentDisplayTable");
 
-    currentRow.insertCell().innerText = "Student Number"
-    currentRow.insertCell().innerText = "Name"
-    currentRow.insertCell().innerText = "Age"
-    currentRow.insertCell().innerText = "Email Address"
-    currentRow.insertCell().innerText = "Course"
+    displayTable.innerText = "";
+    let headers = displayTable.insertRow();
+    
+    headers.insertCell().outerHTML = "<th>Student Number</th>";
+    headers.insertCell().outerHTML = "<th>Name</th>";
+    headers.insertCell().outerHTML = "<th>Age</th>";
+    headers.insertCell().outerHTML = "<th>Email Address</th>";
+    headers.insertCell().outerHTML = "<th>Course</th>";
 
-    studentDir.forEach(displayStudent)
+    studentDir.forEach(displayStudent);
 }
 
 
 function displayStudent(student){
-    currentRow = document.getElementById("studentTable").insertRow()
+    let currentRow = document.getElementById("studentDisplayTable").insertRow();
 
-    currentRow.insertCell().innerText = student.studentNumber
-    currentRow.insertCell().innerText = student.name
-    currentRow.insertCell().innerText = student.age
-    currentRow.insertCell().innerText = student.email
-    currentRow.insertCell().innerText = student.course
+    currentRow.insertCell().outerHTML = `<td>${student.studentNumber}</td>`;
+    currentRow.insertCell().outerHTML = `<td>${student.name}</td>`;
+    currentRow.insertCell().outerHTML = `<td>${student.age}</td>`;
+    currentRow.insertCell().outerHTML = `<td>${student.email}</td>`;
+    currentRow.insertCell().outerHTML = `<td>${student.course}</td>`;
 }
 
-document.getElementById("studentDisplay").onclick =display_list
