@@ -24,6 +24,7 @@ function time_now(){
     document.getElementById("currentTime").innerText = "The current time is " + hour + ":" + minute + " " + period + ".";
 }
 
+
 function Student(studentNumber, name, age, email, course){
     this.studentNumber = studentNumber;
     this.name = name.trim();
