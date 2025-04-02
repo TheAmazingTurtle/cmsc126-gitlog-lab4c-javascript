@@ -10,10 +10,6 @@
         <p id="currentTime"></p>
 
         <form class="studentRegister">
-            <div id="studentIdInput">
-                <label for="studentNumber">Student Number:</label>
-                <input type="number" id="studentNumber" name="studentNumber" required placeholder="Enter your student number">
-            </div>
     
             <div id="studentNameInput">
                 <label for="name">Name:</label>
@@ -41,9 +37,10 @@
                 </select>
             </div>
 
-            <button>Submit</button>
-            
+            <button type="submit" onclick="addStudent()">Submit</button>
         </form>
+
+        <p id="submissionStatus"></p>
 
         <script src="lab4c_scripts.js"></script>
     </body>
