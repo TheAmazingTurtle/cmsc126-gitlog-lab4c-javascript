@@ -1,7 +1,20 @@
 const minStudentNum = 202300000;
 const maxStudentNum = 202399999;
 
-let studentDir = [["202301010", "Kent Olineg", "20", "keolineg@up.edu.ph", "BS Video Gaming"], ["202309062", "Mark Alosim", "21", "mtalosim@up.edu.ph", "BA Food Appreciation"], ["202312345", "Kenneth Rajidom", "19", "kgrajidom@up.edu.ph", "BS Computer Repair Shop"], ["202363697", "Jasmine Nadagam", "20", "jgnadagam@up.edu.ph", "BS Installing and Downloading"]]
+let studentDir = [
+    new Student("202301010", "Kent Olineg", "20", "keolineg@up.edu.ph", "BS Video Gaming"), 
+    new Student("202309062", "Mark Alosim", "21", "mtalosim@up.edu.ph", "BA Food Appreciation"), 
+    new Student("202312345", "Kenneth Rajidom", "19", "kgrajidom@up.edu.ph", "BS Computer Repair Shop"), 
+    new Student("202363697", "Jasmine Nadagam", "20", "jgnadagam@up.edu.ph", "BS Installing and Downloading")
+];
+
+function Student(studentNumber, name, age, email, course){
+    this.studentNumber = studentNumber;
+    this.name = name;
+    this.age = age;
+    this.email = email;
+    this.course = course;
+}
 
 function time_now(){
     let currentDate = new Date();
@@ -20,8 +33,8 @@ function time_now(){
     if (minute < 10) minute = "0" + minute;
 
 
-    document.getElementById("currentDate").innerText = "Today is " + month + " " + date + ", " + year + ", " + day + ".";
-    document.getElementById("currentTime").innerText = "The current time is " + hour + ":" + minute + " " + period + ".";
+    document.getElementById("currentDate").innerText = `Today is ${month} ${date}, ${year}, ${day}.`;
+    document.getElementById("currentTime").innerText = `The current time is ${hour}:${minute} ${period}.`;
 }
 
 function generateUniqueStudentNumber() {
@@ -31,7 +44,7 @@ function generateUniqueStudentNumber() {
     while (!validStudentNumberFound) {
         candidateStudentNumber = Math.floor(Math.random() * (maxStudentNum - minStudentNum + 1)) + minStudentNum;
 
-        let duplicateFound = studentDir.some(student => student[0] == candidateStudentNumber);
+        let duplicateFound = studentDir.some(student => student.studentNumber == candidateStudentNumber);
 
         if (!duplicateFound) {
             validStudentNumberFound = true;
@@ -58,10 +71,10 @@ function validateStudent(name, age, email) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector(".studentRegister").addEventListener("submit", addStudent);
+    document.querySelector(".studentRegister").addEventListener("submit", add_student);
 });
 
-function addStudent(event) {
+function add_student(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -80,13 +93,13 @@ function addStudent(event) {
 
 
     const newStudentNumber = generateUniqueStudentNumber();
-    const newStudent = [
+    const newStudent = new Student(
         newStudentNumber,
         newStudentName,
         newStudentAge,
         newStudentEmail,
         newStudentCourse
-    ];
+    );
 
     studentDir.push(newStudent);
 
