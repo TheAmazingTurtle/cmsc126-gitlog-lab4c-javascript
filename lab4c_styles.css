@@ -55,7 +55,7 @@ body {
 }
 
 /* Styling for the student form */
-#registerStudent {
+.studentRegister {
     background-color: #fff;
     padding: 30px;
     border-radius: 10px;
@@ -66,7 +66,7 @@ body {
 }
 
 /* Label for form title */
-#identifierlangs {
+#formHeader {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -119,7 +119,7 @@ form input[type="submit"]:hover {
     width: 100%;
 } */
 
-.others {
+.searchStudent {
     margin-top: 20px;
     margin-left: -20px; /* Moves the .others div 20px to the left */
     background-color: #f9f9f9;
@@ -131,7 +131,7 @@ form input[type="submit"]:hover {
 }
 
 /* Styling for the search input */
-.others input[type="number"] {
+.searchStudent input[type="number"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -141,12 +141,12 @@ form input[type="submit"]:hover {
 }
 
 /* Button for the 'SHOW STUDENT LIST' */
-.others button {
+.searchStudent button {
     background-color: #2196F3;
     transition: background-color 0.3s;
 }
 
-.others button:hover {
+.searchStudent button:hover {
     background-color: #0b7dda;
 }
 
