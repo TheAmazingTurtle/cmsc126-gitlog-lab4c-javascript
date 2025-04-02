@@ -1,7 +1,7 @@
 const minStudentNum = 202300000;
 const maxStudentNum = 202399999;
 
-let studentDir = [["202301010", "Kent Olineg", 20, "keolineg@up.edu.ph", "BS Video Gaming"], ["202309062", "Mark Alosim", 21, "mtalosim@up.edu.ph", "BA Food Appreciation"], ["202312345", "Kenneth Rajidom", 19, "kgrajidom@up.edu.ph", "BS Computer Repair Shop"], ["202363697", "Jasmine Nadagam", 20, "jgnadagam@up.edu.ph", "BS Installing and Downloading"]]
+let studentDir = [["202301010", "Kent Olineg", "20", "keolineg@up.edu.ph", "BS Video Gaming"], ["202309062", "Mark Alosim", "21", "mtalosim@up.edu.ph", "BA Food Appreciation"], ["202312345", "Kenneth Rajidom", "19", "kgrajidom@up.edu.ph", "BS Computer Repair Shop"], ["202363697", "Jasmine Nadagam", "20", "jgnadagam@up.edu.ph", "BS Installing and Downloading"]]
 
 function time_now(){
     let currentDate = new Date();
@@ -75,7 +75,7 @@ function addStudent(event) {
 
     const formData = new FormData(event.target);
 
-    const newStudentName = formData.get("name");
+    const newStudentName = formData.get("name").trim();
     const newStudentAge = formData.get("age");
     const newStudentEmail = formData.get("email");
     const newStudentCourse = formData.get("course");

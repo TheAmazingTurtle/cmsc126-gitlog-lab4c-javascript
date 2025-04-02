@@ -2,20 +2,21 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="Lab4PracticeCSS.css">
-    <script src="Lab4PracticeJs.js" defer></script>
+    <link rel="stylesheet" href="lab4c_styles.css">
 </head>
-    <button type="button" id="showDate" onclick="show_Date()">Show Date</button>
+<body>
+    <button type="button" id="showDate" onclick="time_now()">Show Current Date</button>
+    <p id="currentDate"></p>
+    <p id="currentTime"></p>
 
-    <form id="registerStudent">
-        
-        <div class="student_Info">
-            <label id="identifierlangs">Student Application Form</label>
+    <form class="studentRegister">
+        <div class="studentInfo">
+            <h2 id="formHeader">Student Application Form</h2>
             <input type="text" placeholder="Full Name" id="name" name="name">
             <input type="number" placeholder="Age" id="age" name="age">
             <input type="email" placeholder="Email Address" id="emailaddress" name="email"><br>
-            <label>Select Program</label>
-            <select type="program" id="program" name="program">
+            <label for="course">Select Course</label>
+            <select type="text" id="course" name="course">
                 <option value="BA Food Appreciation">BA Food Appreciation</option>
                 <option value="BA Applied Poetry of the Future">BA Applied Poetry of the Future</option>
                 <option value="BS Computer Repair Shop">BS Computer Repair Shop</option>
@@ -24,18 +25,20 @@
             </select><br>
 
             <input type="submit" id="submit" onclick="add_Student()"><br>
-
-        </div>
-        
-
-
-        <div class="others">
-            <label>SEARCH STUDENT BY ID</label><br>
-            <input type="number" placeholder="eg. 2023xxxxxx"><br>
-
-            <button type="submit" id="showList" onclick="show_ListStudent()">SHOW STUDENT LIST</label>
         </div>
 
+        <div class="status">
+            <p id="submissionStatus"></p>
+        </div>
     </form>
 
+    <div class="searchStudent">
+        <label>SEARCH STUDENT BY ID</label><br>
+        <input type="number" placeholder="eg. 2023xxxxxx"><br>
+
+        <button type="submit" id="showList" onclick="show_ListStudent()">SHOW STUDENT LIST</label>
+    </div>
+
+    <script src="lab4c_scripts.js"></script>
+</body>
 </html>
