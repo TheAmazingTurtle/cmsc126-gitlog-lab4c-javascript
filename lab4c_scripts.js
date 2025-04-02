@@ -107,56 +107,6 @@ function add_student(event) {
     document.getElementById("submissionStatus").innerText = `Student ${newStudentName} added successfully with ID ${newStudentNumber}`;
 }
 
-function find_student(event){
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-    const targetNumber = parseInt(formData.get("searchInput"));
-
-    let displayStatus = document.getElementById("searchStatus");
-    let displayTable = document.getElementById("studentSearchTable");
-
-    displayStatus.innerHTML = "";
-    displayTable.innerHTML = "";
-
-
-    if (targetNumber < minStudentNum || targetNumber > maxStudentNum){
-        displayStatus.innerHTML = "Error: Invalid Student Number";
-        return;
-    }
-
-    for (let i = 0; i < studentDir.length; i++){
-        if (studentDir[i].studentNumber == targetNumber){
-            insertStudentDetails(displayTable, studentDir[i]);
-            return
-        }
-    }
-
-    displayStatus.innerHTML = "Error: Invalid Student Number";
-}
-
-function insertStudentDetails(displayTable, student){
-    studentNumberRow = displayTable.insertRow();
-    setSearchTableRow(studentNumberRow, "Student Number", student.studentNumber)
-
-    nameRow = displayTable.insertRow();
-    setSearchTableRow(nameRow, "Name", student.name)
-
-    ageRow = displayTable.insertRow();
-    setSearchTableRow(ageRow, "Age", student.age)
-
-    emailRow = displayTable.insertRow();
-    setSearchTableRow(emailRow, "Email", student.email)
-
-    courseRow = displayTable.insertRow();
-    setSearchTableRow(courseRow, "Course", student.course)
-}
-
-function setSearchTableRow(row, header, data){
-    row.insertCell().outerHTML = `<th>${header}</th>`;
-    row.insertCell().outerHTML = `<td>${data}</td>`;
-}
-
 function display_list(){
     let displayTable = document.getElementById("studentDisplayTable");
 
@@ -171,7 +121,6 @@ function display_list(){
 
     studentDir.forEach(displayStudent);
 }
-
 
 function displayStudent(student){
     let currentRow = document.getElementById("studentDisplayTable").insertRow();
