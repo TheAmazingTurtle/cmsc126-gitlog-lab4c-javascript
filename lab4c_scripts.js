@@ -126,9 +126,14 @@ function add_student(event) {
     document.getElementById('ageInput').value = '';
     document.getElementById('emailInput').value = '';
     document.getElementById('courseInput').value = 'BA Food Appreciation';
+
+    if (displayListToggle){
+        document.getElementById('allStudentTableContainer').innerHTML = "";
+        display_list();
+    }
 }
 
-function display_list(){
+function activateDisplayButton(){
     document.getElementById('allStudentTableContainer').innerHTML = "";
 
     displayListToggle = !displayListToggle;
@@ -136,7 +141,10 @@ function display_list(){
         document.getElementById("studentDisplayButton").innerText = 'Display All';
         return;
     }
+    display_list();
+}
 
+function display_list(){
     document.getElementById("studentDisplayButton").innerText = 'Hide All';
 
     const tableContainer = document.getElementById('allStudentTableContainer');
