@@ -132,3 +132,31 @@ function displayStudent(student){
     currentRow.insertCell().outerHTML = `<td>${student.course}</td>`;
 }
 
+// Minmin : code assistance by ChatGPT, OpenAI, April 3, 2025, https://chatgpt.com/c/67eea4e1-7724-8005-8dcd-b6e2bcc3b511
+
+function find_student(event){
+    event.preventDefault();
+
+    const sNumberData = document.getElementById("searchInput").value.trim();
+
+    if (sNumberData === ""){
+        document.getElementById("searchStatus").innerText = "Please enter a student number to search.";
+        return;
+    }
+
+    let student_is_found = studentDir.find(student => student.studentNumber == sNumberData);
+    let table = document.getElementById("studentSearchTable");
+    table.innerHTML = "";
+
+    if (student_is_found){
+        table.innerHTML = `Student Found:
+            <tr><th>Student Number</th><td>${student_is_found.studentNumber}</td></tr>
+            <tr><th>Name</th><td>${student_is_found.name}</td></tr>
+            <tr><th>Age</th><td>${student_is_found.age}</td></tr>
+            <tr><th>Email</th><td>${student_is_found.email}</td></tr>
+            <tr><th>Course</th><td>${student_is_found.course}</td></tr>
+    `;
+    } else {
+        document.getElementById("searchStatus").innerText = "Student record does not exist.";
+    }
+}
