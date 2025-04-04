@@ -126,6 +126,7 @@ form button:hover {
 }
 
 #studentSearchTable {
+    margin-top: 10px;
     border-collapse: collapse;
 }
 
