@@ -7,6 +7,21 @@ body {
     background-color: #f0f4f8;
 }
 
+#currentDateContainer {
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;
+}
+
+#currentDateContainer * {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+#showDate {
+    width: 300px;
+}
+
 .container{
     width: 1500px;
     display: flex;
@@ -22,7 +37,7 @@ body {
 
 .rightPanel {
     margin-left: 20px;
-    width: 800px;
+    width: 1000px;
 
     padding: 20px;
 }
@@ -161,9 +176,8 @@ input::-webkit-inner-spin-button {
 
 #allStudentTableContainer {
     margin-top: 20px;
-
     width: 100%;
-    height: 300px; /* Adjust the height for scrolling */
+    height: 500px; /* Adjust the height for scrolling */
     overflow-y: auto;
 }
 
@@ -177,10 +191,13 @@ input::-webkit-inner-spin-button {
     padding: 10px;
     text-align: left;
     border: 1px solid #ddd;
+    text-align: center;
 }
 
 #allStudentTableContainer th {
     background-color: #f4f4f4;
+    border: black solid 2px;
+    
     position: sticky;
     top: 0;
     z-index: 1;

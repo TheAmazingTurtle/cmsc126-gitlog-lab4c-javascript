@@ -10,6 +10,9 @@ let studentDir = [
 
 const errorHead = "Input Invalid:\n";
 
+let currentDateToggle = false;
+let displayListToggle = false;
+
 function Student(studentNumber, name, age, email, course){
     this.studentNumber = studentNumber;
     this.name = name;
@@ -19,6 +22,15 @@ function Student(studentNumber, name, age, email, course){
 }
 
 function time_now(){
+    currentDateToggle = !currentDateToggle;
+
+    if (!currentDateToggle){
+        document.getElementById("currentDate").innerText = '';
+        document.getElementById("currentTime").innerText = '';
+        document.getElementById("showDate").innerText = 'Show Current Date';
+        return;
+    }
+
     let currentDate = new Date();
 
     let day = currentDate.toLocaleString('en-US', { weekday: 'long' });
@@ -34,9 +46,9 @@ function time_now(){
 
     if (minute < 10) minute = "0" + minute;
 
-
     document.getElementById("currentDate").innerText = `Today is ${month} ${date}, ${year}, ${day}.`;
     document.getElementById("currentTime").innerText = `The current time is ${hour}:${minute} ${period}.`;
+    document.getElementById("showDate").innerText = 'Hide Current Date';
 }
 
 function generateUniqueStudentNumber() {
@@ -118,6 +130,14 @@ function add_student(event) {
 
 function display_list(){
     document.getElementById('allStudentTableContainer').innerHTML = "";
+
+    displayListToggle = !displayListToggle;
+    if (!displayListToggle){
+        document.getElementById("studentDisplayButton").innerText = 'Display All';
+        return;
+    }
+
+    document.getElementById("studentDisplayButton").innerText = 'Hide All';
 
     const tableContainer = document.getElementById('allStudentTableContainer');
     const table = document.createElement('table');
