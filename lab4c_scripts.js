@@ -8,6 +8,8 @@ let studentDir = [
     new Student("202363697", "Jasmine Nadagam", "20", "jgnadagam@up.edu.ph", "BS Installing and Downloading")
 ];
 
+const errorHead = "Input Invalid:\n";
+
 function Student(studentNumber, name, age, email, course){
     this.studentNumber = studentNumber;
     this.name = name;
@@ -54,20 +56,22 @@ function generateUniqueStudentNumber() {
 }
 
 function validateStudent(name, age, email) {
+    let errorMessage = errorHead;
+
     if (name.length <= 5 || !/\s/.test(name)) {
-        return "Name must be more than 5 characters and contain a space.";
+        errorMessage += " - Name must be more than 5 characters and contain a space.\n";
     }
 
     let parsedAge = parseInt(age);
     if (isNaN(parsedAge) || parsedAge < 18 || parsedAge > 99) {
-        return "Age must be a number between 18 and 99.";
+        errorMessage += " - Age must be a number between 18 and 99.\n";
     }
 
     if (!email.endsWith("@up.edu.ph")) {
-        return "Email must end with @up.edu.ph.";
+        errorMessage += " - Email must end with @up.edu.ph.\n";
     }
 
-    return null;
+    return errorMessage;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -87,8 +91,8 @@ function add_student(event) {
 
 
     const errorMessage = validateStudent(newStudentName, newStudentAge, newStudentEmail);
-    if (errorMessage) {
-        document.getElementById("submissionStatus").innerText = errorMessage;
+    if (errorMessage != errorHead) {
+        alert(errorMessage);
         return;
     }
 
@@ -104,7 +108,7 @@ function add_student(event) {
 
     studentDir.push(newStudent);
 
-    document.getElementById("submissionStatus").innerText = `Student ${newStudentName} added successfully with ID ${newStudentNumber}`;
+    alert(`Student ${newStudentName} added successfully with ID ${newStudentNumber}`);
 }
 
 function display_list(){
