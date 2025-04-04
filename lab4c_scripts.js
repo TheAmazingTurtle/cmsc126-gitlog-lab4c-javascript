@@ -171,16 +171,6 @@ function display_list(){
     tableContainer.appendChild(table);
 }
 
-// function displayStudent(student){
-//     let currentRow = document.getElementById("studentDisplayTable").insertRow();
-
-//     currentRow.insertCell().outerHTML = `<td class="allStudentNum">${student.studentNumber}</td>`;
-//     currentRow.insertCell().outerHTML = `<td class="allName">${student.name}</td>`;
-//     currentRow.insertCell().outerHTML = `<td class="allAge">${student.age}</td>`;
-//     currentRow.insertCell().outerHTML = `<td class="allEmail">${student.email}</td>`;
-//     currentRow.insertCell().outerHTML = `<td class="allCourse">${student.course}</td>`;
-// }
-
 // Minmin : code assistance by ChatGPT, OpenAI, April 3, 2025, https://chatgpt.com/c/67eea4e1-7724-8005-8dcd-b6e2bcc3b511
 
 function find_student(event){
