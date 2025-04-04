@@ -9,48 +9,49 @@
         <button id="showDate" onclick="time_now()">Show Current Date</button>
         <p id="currentDate"></p>
         <p id="currentTime"></p>
-    </div>
+    </div>  
 
-    <div id="leftPanel">
-        <form class="studentRegister">
-            <div class="studentInfo">
-                <h2 id="formHeader">Student Application Form</h2>
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name">
+    <div class="container">
+        
 
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age">
+        <div class="leftPanel">
+            <form class="studentRegister">
+                <div class="studentInfo">
+                    <h2 id="formHeader">Student Application Form</h2>
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="nameInput" name="name">
 
-                <label for="email">Email:</label>
-                <input type="email" id="emailaddress" name="email">
+                    <label for="age">Age:</label>
+                    <input type="number" id="ageInput" name="age">
 
-                <label for="course">Course:</label>
-                <select id="course" name="course">
-                    <option value="BA Food Appreciation">BA Food Appreciation</option>
-                    <option value="BA Applied Poetry of the Future">BA Applied Poetry of the Future</option>
-                    <option value="BS Computer Repair Shop">BS Computer Repair Shop</option>
-                    <option value="BS Video Gaming">BS Video Gaming</option>
-                    <option value="BS Installing and Downloading">BS Installing and Downloading</option>
-                </select>
-                
-                <button type="submit" id="submitForm" onclick="add_student()">Submit</button>
-            </div>
-        </form>
+                    <label for="email">Email:</label>
+                    <input type="email" id="emailInput" name="email">
 
-        <form class="studentSearch">
-            <label>SEARCH STUDENT BY ID</label>
-            <input type="number" placeholder="eg. 2023xxxxxx" id="searchInput" name="searchInput">
-            <button type="submit" id="showList" onclick="find_student()">Search Student</button>
-            <div class="status">
-                <p id="searchStatus"></p>
-            </div>
-            <table id="studentSearchTable"></table>
-        </form>
-    </div>
+                    <label for="course">Course:</label>
+                    <select id="courseInput" name="course">
+                        <option value="BA Food Appreciation">BA Food Appreciation</option>
+                        <option value="BA Applied Poetry of the Future">BA Applied Poetry of the Future</option>
+                        <option value="BS Computer Repair Shop">BS Computer Repair Shop</option>
+                        <option value="BS Video Gaming">BS Video Gaming</option>
+                        <option value="BS Installing and Downloading">BS Installing and Downloading</option>
+                    </select>
+                    
+                    <button type="submit" id="submitForm" onclick="add_student()">Submit</button>
+                </div>
+            </form>
 
-    <div id="rightPanel">
-        <button id="studentDisplay" onclick="display_list()">DISPLAY ALL</button>
-        <table id="studentDisplayTable"></table>
+            <form class="studentSearch">
+                <h2>Search Student by ID</h2>
+                <input type="number" placeholder="eg. 2023xxxxxx" id="searchInput" name="searchInput">
+                <button type="submit" id="showList" onclick="find_student()">Search Student</button>
+                <table id="studentSearchTable"></table>
+            </form>
+        </div>
+
+        <div class="rightPanel">
+            <button id="studentDisplayButton" onclick="display_list()">DISPLAY ALL</button>
+            <div id="allStudentTableContainer"></div>
+        </div>
     </div>
 
     <script src="lab4c_scripts.js"></script>

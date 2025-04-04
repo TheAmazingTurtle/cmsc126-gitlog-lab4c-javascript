@@ -109,31 +109,56 @@ function add_student(event) {
     studentDir.push(newStudent);
 
     alert(`Student ${newStudentName} added successfully with ID ${newStudentNumber}`);
+    
+    document.getElementById('nameInput').value = '';
+    document.getElementById('ageInput').value = '';
+    document.getElementById('emailInput').value = '';
+    document.getElementById('courseInput').value = 'BA Food Appreciation';
 }
 
 function display_list(){
-    let displayTable = document.getElementById("studentDisplayTable");
+    document.getElementById('allStudentTableContainer').innerHTML = "";
 
-    displayTable.innerText = "";
-    let headers = displayTable.insertRow();
-    
-    headers.insertCell().outerHTML = "<th>Student Number</th>";
-    headers.insertCell().outerHTML = "<th>Name</th>";
-    headers.insertCell().outerHTML = "<th>Age</th>";
-    headers.insertCell().outerHTML = "<th>Email Address</th>";
-    headers.insertCell().outerHTML = "<th>Course</th>";
+    const tableContainer = document.getElementById('allStudentTableContainer');
+    const table = document.createElement('table');
 
-    studentDir.forEach(displayStudent);
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    headerRow.innerHTML = `
+        <th>Student Number</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email Address</th>
+        <th>Course</th>
+    `;
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    const tbody = document.createElement('tbody');
+    studentDir.forEach(student => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${student.studentNumber}</td>
+            <td>${student.name}</td>
+            <td>${student.age}</td>
+            <td>${student.email}</td>
+            <td>${student.course}</td>
+        `;
+        tbody.appendChild(row);
+    });
+    table.appendChild(tbody);
+
+    tableContainer.appendChild(table);
 }
 
 function displayStudent(student){
     let currentRow = document.getElementById("studentDisplayTable").insertRow();
 
-    currentRow.insertCell().outerHTML = `<td>${student.studentNumber}</td>`;
-    currentRow.insertCell().outerHTML = `<td>${student.name}</td>`;
-    currentRow.insertCell().outerHTML = `<td>${student.age}</td>`;
-    currentRow.insertCell().outerHTML = `<td>${student.email}</td>`;
-    currentRow.insertCell().outerHTML = `<td>${student.course}</td>`;
+    currentRow.insertCell().outerHTML = `<td class="allStudentNum">${student.studentNumber}</td>`;
+    currentRow.insertCell().outerHTML = `<td class="allName">${student.name}</td>`;
+    currentRow.insertCell().outerHTML = `<td class="allAge">${student.age}</td>`;
+    currentRow.insertCell().outerHTML = `<td class="allEmail">${student.email}</td>`;
+    currentRow.insertCell().outerHTML = `<td class="allCourse">${student.course}</td>`;
 }
 
 // Minmin : code assistance by ChatGPT, OpenAI, April 3, 2025, https://chatgpt.com/c/67eea4e1-7724-8005-8dcd-b6e2bcc3b511

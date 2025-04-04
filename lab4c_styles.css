@@ -1,13 +1,30 @@
+/* * {
+    border: 1px solid black;
+} */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f4f8;
-    margin: 0;
-    padding: 20px;
+}
+
+.container{
+    width: 1500px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    background-color: lightblue;
+}
+
+.leftPanel {
+    margin-right: 20px;
+    width: 400px;
+
+    padding: 20px;
+}
+
+.rightPanel {
+    margin-left: 20px;
+    width: 800px;
+
+    padding: 20px;
 }
 
 /* Styling for the student form */
@@ -16,9 +33,7 @@ body {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    margin-bottom: 20px;
+    margin: 10px;
 }
 
 label {
@@ -28,27 +43,25 @@ label {
 }
 
 /* Label for form title */
-#formHeader {
+h2 {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 20px;
     text-align: center;
+    margin: 0;
 }
 
 /* Input fields styling */
 input, select {
-    width: 100%;
     padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Button styling */
 form button {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
     background-color: #4CAF50;
     color: white;
     border: none;
@@ -56,32 +69,35 @@ form button {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#studentDisplayButton {
+    background-color: #00008B;
+    margin-top: 10px;
+    color: white;
+    font-size: 15px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 form button:hover {
     background-color: #45a049;
 }
 
-.status {
-    text-align: center;
-    font-size: 14px;
-    color: red;
-    margin-top: 10px;
-
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
-}
-
 .studentSearch {
-    margin-top: 20px;
-    margin-left: -20px; /* Moves the .others div 20px to the left */
     background-color: #f9f9f9;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
+    margin: 10px;
+}
+
+.studentSearch input {
+    margin-top: 10px;
 }
 
 /* Button for the 'SHOW STUDENT LIST' */
@@ -95,9 +111,7 @@ form button:hover {
 }
 
 #studentSearchTable {
-    width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
 #studentSearchTable th, td {
@@ -129,6 +143,10 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+#studentDisplay {
+    display: block;
+}
+
 /*Adding style to table that displays all students*/
 #studentDisplayTable {
     border: 2px solid black;
@@ -140,3 +158,36 @@ input::-webkit-inner-spin-button {
     padding: 10px;
     text-align: center;       
 }
+
+#allStudentTableContainer {
+    margin-top: 20px;
+
+    width: 100%;
+    height: 300px; /* Adjust the height for scrolling */
+    overflow-y: auto;
+}
+
+#allStudentTableContainer table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#allStudentTableContainer th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#allStudentTableContainer th {
+    background-color: #f4f4f4;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+#allStudentTableContainer td {
+    background-color: #fff;
+}
+
+
