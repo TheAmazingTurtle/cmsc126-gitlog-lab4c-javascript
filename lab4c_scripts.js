@@ -140,7 +140,7 @@ function find_student(event){
     const sNumberData = document.getElementById("searchInput").value.trim();
 
     if (sNumberData === ""){
-        document.getElementById("searchStatus").innerText = "Please enter a student number to search.";
+        alert("Please enter a student number to search.");
         return;
     }
 
@@ -157,6 +157,6 @@ function find_student(event){
             <tr><th>Course</th><td>${student_is_found.course}</td></tr>
     `;
     } else {
-        document.getElementById("searchStatus").innerText = "Student record does not exist.";
+        alert("Student record does not exist.");
     }
 }
